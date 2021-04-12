@@ -6,14 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -21,15 +19,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class Login extends AppCompatActivity {
 
@@ -47,7 +41,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser user =mAuth.getCurrentUser();
         if(user!=null){
-            Intent intent =new Intent(getApplicationContext(),Administrador.class);
+            Intent intent =new Intent(getApplicationContext(), Platos.class);
             startActivity(intent);
         }
     }
@@ -67,7 +61,7 @@ public class Login extends AppCompatActivity {
         });
 
         mAuth = FirebaseAuth.getInstance();
-        initializeUI();
+        incialisarr();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +113,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent =new Intent(getApplicationContext(),Administrador.class);
+                            Intent intent =new Intent(getApplicationContext(), Platos.class);
                             startActivity(intent);
 
                         } else {
@@ -151,21 +145,21 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Sesion Iniciada", Toast.LENGTH_LONG).show();
                             ProgressBar.setVisibility(View.GONE);
 
-                            Intent intent = new Intent(Login.this, Administrador.class);
+                            Intent intent = new Intent(Login.this, Platos.class);
                             startActivity(intent);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error al iniciar sesion", Toast.LENGTH_LONG).show();
                             ProgressBar.setVisibility(View.GONE);
                         }
                     }
                 });
     }
 
-    private void initializeUI() {
+    private void incialisarr() {
         tvEmail = findViewById(R.id.email);
         tvPassword = findViewById(R.id.password);
 

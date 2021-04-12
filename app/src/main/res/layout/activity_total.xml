@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:stretchColumns="1">
+
+    <TableRow android:background="#128675">
+
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Factura"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_column="2"
+            android:padding="3dip"
+            android:text="Subtotal"
+            android:textColor="@android:color/white" />
+    </TableRow>
+
+
+
+
+
+
+
+
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Nombre producto"
+            android:textColor="#128675" />
+
+        <TextView
+            android:id="@+id/txtnombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="$0" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Precio"
+            android:textColor="#128675" />
+
+        <TextView
+            android:id="@+id/txtprecio"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_column="2"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="$0" />
+    </TableRow>
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Total"
+            android:textColor="#128675" />
+
+        <TextView
+            android:id="@+id/txttotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="$0" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/btnterminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="finalizar"
+
+        android:text="Realizar Pedido"
+        />
+    <Button
+        android:id="@+id/btncompra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Volver"
+        android:text="Realizar otra compra"
+        />
+
+
+</TableLayout>
